@@ -1,0 +1,168 @@
+{
+  "organisationUnits": [
+    {
+      "id": "opyPqP2kehM",
+      "name": "SYNTHETIC Transfer Test Root",
+      "shortName": "Transfer test root",
+      "openingDate": "2020-01-01"
+    },
+    {
+      "id": "tPcRhd6mxg1",
+      "name": "SYNTHETIC Centre A",
+      "shortName": "Centre A",
+      "parent": {
+        "id": "opyPqP2kehM"
+      },
+      "openingDate": "2020-01-01"
+    },
+    {
+      "id": "GatM4hC7IIV",
+      "name": "SYNTHETIC Centre B",
+      "shortName": "Centre B",
+      "parent": {
+        "id": "opyPqP2kehM"
+      },
+      "openingDate": "2020-01-01"
+    }
+  ],
+  "userGroups": [
+    {
+      "id": "kvrqMa5EYOQ",
+      "name": "SYNTHETIC Transfer Care Users"
+    }
+  ],
+  "userRoles": [
+    {
+      "id": "uJeKtyySyzm",
+      "name": "HTN Data Capture",
+      "authorities": [],
+      "publicAccess": "r-------",
+      "externalAccess": false
+    }
+  ],
+  "trackedEntityTypes": [
+    {
+      "id": "Vp2VDZ8VIC8",
+      "name": "SYNTHETIC Transfer Patient",
+      "publicAccess": "--------",
+      "externalAccess": false,
+      "userGroupAccesses": [
+        {
+          "id": "kvrqMa5EYOQ",
+          "access": "r-rw----"
+        }
+      ]
+    }
+  ],
+  "trackedEntityAttributes": [
+    {
+      "id": "bp9hPXGkqk9",
+      "name": "SYNTHETIC National ID",
+      "shortName": "SYNTHETIC National ID",
+      "valueType": "TEXT",
+      "aggregationType": "NONE",
+      "unique": true,
+      "publicAccess": "r-------",
+      "externalAccess": false
+    },
+    {
+      "id": "RYO6e0uhktE",
+      "name": "SYNTHETIC Patient name",
+      "shortName": "SYNTHETIC Patient name",
+      "valueType": "TEXT",
+      "aggregationType": "NONE",
+      "unique": false,
+      "publicAccess": "r-------",
+      "externalAccess": false
+    }
+  ],
+  "dataElements": [
+    {
+      "id": "RlJnLzqqDRA",
+      "name": "SYNTHETIC Systolic BP",
+      "shortName": "Test systolic BP",
+      "valueType": "NUMBER",
+      "domainType": "TRACKER",
+      "aggregationType": "NONE",
+      "publicAccess": "r-------",
+      "externalAccess": false
+    }
+  ],
+  "programs": [
+    {
+      "id": "z4uNYncdupm",
+      "name": "SYNTHETIC Transfer Test Programme",
+      "shortName": "Transfer test",
+      "programType": "WITH_REGISTRATION",
+      "accessLevel": "OPEN",
+      "onlyEnrollOnce": true,
+      "trackedEntityType": {
+        "id": "Vp2VDZ8VIC8"
+      },
+      "organisationUnits": [
+        {
+          "id": "tPcRhd6mxg1"
+        },
+        {
+          "id": "GatM4hC7IIV"
+        }
+      ],
+      "programTrackedEntityAttributes": [
+        {
+          "trackedEntityAttribute": {
+            "id": "bp9hPXGkqk9"
+          },
+          "displayInList": true,
+          "mandatory": true,
+          "searchable": true,
+          "sortOrder": 1
+        },
+        {
+          "trackedEntityAttribute": {
+            "id": "RYO6e0uhktE"
+          },
+          "displayInList": true,
+          "mandatory": true,
+          "searchable": true,
+          "sortOrder": 2
+        }
+      ],
+      "publicAccess": "--------",
+      "externalAccess": false,
+      "userGroupAccesses": [
+        {
+          "id": "kvrqMa5EYOQ",
+          "access": "r-rw----"
+        }
+      ]
+    }
+  ],
+  "programStages": [
+    {
+      "id": "u6FkGvDy8ds",
+      "name": "SYNTHETIC Visit",
+      "program": {
+        "id": "z4uNYncdupm"
+      },
+      "repeatable": true,
+      "minDaysFromStart": 0,
+      "programStageDataElements": [
+        {
+          "dataElement": {
+            "id": "RlJnLzqqDRA"
+          },
+          "compulsory": false,
+          "sortOrder": 1
+        }
+      ],
+      "publicAccess": "--------",
+      "externalAccess": false,
+      "userGroupAccesses": [
+        {
+          "id": "kvrqMa5EYOQ",
+          "access": "r-rw----"
+        }
+      ]
+    }
+  ]
+}

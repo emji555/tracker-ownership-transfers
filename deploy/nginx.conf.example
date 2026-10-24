@@ -1,0 +1,29 @@
+# Merge into the existing HTTPS server block; validate with nginx -t.
+# Assumes DHIS2 runs at /. For /dhis context deployments adapt BOTH location paths
+# and proxy_pass, keep PUBLIC_ORIGIN at the public origin and DHIS2_BASE_URL at /dhis.
+# Upstream DHIS2/Tomcat and transfer ports must not be publicly reachable.
+# Put this regex before broader regex locations; do not let ^~ /api/ bypass it.
+location ~* ^/api/(?:[0-9]+/)?(?:tracker/ownership|trackerOwnership)(?:[/\.]|$) {
+    return 403;
+}
+
+location /transfer-api/ {
+    proxy_pass http://127.0.0.1:8094/;
+    proxy_http_version 1.1;
+    proxy_set_header Host $host;
+    proxy_set_header Cookie $http_cookie;
+    proxy_set_header Origin $http_origin;
+    proxy_set_header X-Patient-Transfers $http_x_patient_transfers;
+    proxy_set_header X-XSRF-TOKEN $http_x_xsrf_token;
+    proxy_read_timeout 90s;
+    proxy_send_timeout 30s;
+    client_max_body_size 8k;
+    proxy_cache off;
+    # Access logs must exclude request bodies and National ID values.
+}
+
+# Keep existing /, /api/, /apps/ and Capture routes. The transfer backend uses
+# DHIS2_BASE_URL pointing to the private upstream, not this public blocked route.
+# Disable all alternate public Tomcat ports/hosts. Test encoded paths, API version
+# prefixes, legacy ownership routes and context-path aliases on the deployed proxy.
+# Administrative imports can still change data; keep admin credentials trusted.

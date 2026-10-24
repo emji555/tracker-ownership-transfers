@@ -1,0 +1,30 @@
+**/node_modules/
+**/.d2/
+**/data/
+**/.env
+**/build/
+test-runtime/
+local-runtime/
+*.sqlite*
+
+# Local configuration, credentials and temporary files
+**/.env.*
+!**/.env.example
+*.log
+*.service.lock
+*.pem
+*.key
+__pycache__/
+.DS_Store
+Thumbs.db
+
+# Local repair utilities contain instance-specific values; do not publish.
+/service/scripts/fix-*.mjs
+
+# Generate distributions from source; do not commit historical local bundles.
+*.zip
+/release-verification.json
+
+# Local packaging helpers (not part of the published product)
+GITHUB_UPLOAD_GUIDE.md
+FILES_INCLUDED.md

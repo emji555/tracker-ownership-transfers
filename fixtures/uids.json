@@ -1,0 +1,22 @@
+{
+  "root": "opyPqP2kehM",
+  "centreA": "tPcRhd6mxg1",
+  "centreB": "GatM4hC7IIV",
+  "program": "z4uNYncdupm",
+  "stage": "u6FkGvDy8ds",
+  "entityType": "Vp2VDZ8VIC8",
+  "nationalId": "bp9hPXGkqk9",
+  "name": "RYO6e0uhktE",
+  "systolic": "RlJnLzqqDRA",
+  "requestRole": "uJeKtyySyzm",
+  "approveRole": "GsIPdFN6hKH",
+  "auditRole": "uBtEnSjqPwL",
+  "careGroup": "kvrqMa5EYOQ",
+  "directoryGroup": "OXFoYdVy8LR",
+  "approvePatient": "uS0UTiFGZjV",
+  "rejectPatient": "iydWMjyQW2v",
+  "approveEnrollment": "ZPajj82zZuS",
+  "rejectEnrollment": "tkNxbt6F4ZN",
+  "approveVisit": "Sx6ftybIHxG",
+  "rejectVisit": "amPMH8eHvKg"
+}
